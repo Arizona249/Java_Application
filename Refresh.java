@@ -29,6 +29,13 @@ public class Refresh{
 				num2=Scan.nextInt();
 				result=num1*num2;
 				System.out.printf("The product is %.2f: ",result);
+			case '+':
+				System.out.print("Enter augend(First number): ");
+				num1=Scan.nextInt();
+				System.out.print("Enter addend(Second number): ");
+				num2=Scan.nextInt();
+				result=num1+num2;
+			    System.out.printf("The sum of the two numbers is %f: ",result);
 		}
 			
 		
