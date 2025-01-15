@@ -7,10 +7,10 @@ public class CompoundInterestCalculation{
 		// System.out.printf("%-5s %-20s%n","year","Amount on deposit");- left to right +right to left
 		
 		for(int year=1; year<10; ++year){
-			Amount=(int)principal*Math.pow(1.0+interest,year);
+			Amount=principal*(int)Math.pow(1.0+interest,year);
 			
 			
-			System.out.printf("%-5d %-20.2f%n%",year,Amount);
+			System.out.printf("%d,%d",year,Amount);
 			
 			
 		}
