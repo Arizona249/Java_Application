@@ -3,7 +3,6 @@ public class UserInputSingleArrays{
 	public static void main(String[]args){
 		Scanner scan =new Scanner(System.in);
 		String[] names=new String[5];
-		String name;
 		for(int i =0;i<5;i++){
 			System.out.print("Enter name: ");
 			// String name=scan.nextLine();
@@ -12,7 +11,8 @@ public class UserInputSingleArrays{
 		}	
 		for(int i =0;i<5;i++){
 			System.out.printf("Element at index %d=%s%n",i,names[i]);
-		}			
+		}
+			System.out.println("The element at the 3rd position is "+names[2]);
 		
 	}
 }

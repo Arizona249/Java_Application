@@ -51,6 +51,7 @@ public static void displayDigits(int randomNum)
 			int remainderResult=remainderInt(randomNum,10);
 			System.out.printf("Output = %d  %d%n",quotientResult,remainderResult);
 		}
+	}
 		else if(randomNum>=100 &&randomNum<=999)
 		{
 			int variable;
@@ -76,6 +77,8 @@ public static void displayDigits(int randomNum)
 		}
 		else if(randomNum>=1000 && randomNum<=9999)
 		{
+			int variable2;
+			int variable3;
 			int variable;
 			int num[]=new int[4];
 			int arrayCounter=3;
@@ -83,22 +86,22 @@ public static void displayDigits(int randomNum)
 			{
 				variable=remainderInt(randomNum,10);
 				num[arrayCounter]=variable;
-				System.out.println(num[arrayCounter]);
-				int variable3=quotientInt(randomNum,10);
+				
+				variable=quotientInt(randomNum,10);
+				variable2=remainderInt(variable,10);
+				num[arrayCounter]=variable2;
+				
+				variable2=quotientInt(variable,10);
+				
+				
 				arrayCounter=arrayCounter-1;
 				if(i==1)
 				{
-					variable=remainderInt(variable3,10);
-					num[arrayCounter]=variable;
-
-					int variable4=quotientInt(variable3,10);
-					num[arrayCounter]=variable;
+					variable3=remainderInt(variable2,10);
+					num[arrayCounter]=variable3;
 					
-					variable=quotientInt(variable4,10);
-					num[arrayCounter]=variable;
-					
-					variable=remainderInt(variable4,10);
-					num[arrayCounter]=variable;
+					variable3=quotientInt(variable2,10);
+					num[arrayCounter]=variable3;
 				}
 			}
             for(int i=0; i<4;i++)
@@ -132,9 +135,10 @@ public static void displayDigits(int randomNum)
 			}	
 			
 		}
-
 		
-	}
+		
+		
+	
 }
 
 
