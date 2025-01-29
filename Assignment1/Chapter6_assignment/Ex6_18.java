@@ -9,78 +9,108 @@ public class Ex6_18
 		boolean[]seatsStatus=new boolean[10];
 		Arrays.fill(seatsStatus,false);
 		int seatNo;
-		Arrays.sort(seatsStatus);
+		int num=0;
+		int economyControl=5;
 		for(int i=1;i<=10;i++)
 		{
 			System.out.println("Please type 1 for First class ");
 			System.out.print("Please type 2 for Economy: ");
 			int response=scan.nextInt();
+			scan.nextLine();
 			if(response==1)
 			{
-				seatNo=i;
-				seatsStatus[i-1]=true;
-				if(seatNo==6)
+				for(int r=0;r<1;r++)
 				{
-					System.out.print("First Class full (Would you like to move to economy(Y/N): ");
-					String response2=scan.next();
-					if(response2.equalsIgnoreCase("y"))
+					if(seatsStatus[num]==false)
 					{
-						int index=Arrays.binarySearch(seatsStatus,4,10,false);
-						if(index>0)
-						{
-							seatNo=index+1;
-							System.out.printf("===Boarding Pass===\nSeatNO\t\tClass\n%d\t\tEconomy",seatNo);
-							seatsStatus[index]=true;
-
-						}
-						else
-						{
-							System.out.print("All Seats has been Taken");
-						}
+						seatNo=num+1;
+						seatsStatus[num]=true;
+						System.out.printf("===Boarding Pass===\nSeatNO\t\tClass\n%d\t\tFirst%n",seatNo);
+						break;
 					}
+	
 					else
 					{
-						System.out.print("Next Flight leaves in 3 Hours");
-					}
-				}
-				else
-				{
-					System.out.printf("===Boarding Pass===\nSeatNO\t\tClass\n%d\t\tFirst",seatNo);
-				}
-				
-			}
-			else
-			{
-				int index2=Arrays.binarySearch(seatsStatus,4,10,false);
-				if(index2>0)
-				{
-					seatNo=index2+1;
-					System.out.printf("===Boarding Pass===\nSeatNO\t\tClass\n%d\t\tEconomy",seatNo);	
-				}
-				else
-				{
-					System.out.print("Economy full(would you like to move to Economy(Y/N): ");
-					String response3=scan.nextLine();
-					if(response3.equalsIgnoreCase("y"))
-					{
-						int index3=Arrays.binarySearch(seatsStatus,0,5,false);
-						if(index3>0)
+						System.out.println("First Class full \n(Would you like to move to economy(Y/N): ");
+						String response2=scan.next();
+						if(response2.equalsIgnoreCase("y"))
 						{
-							seatNo=index3+1;
-							System.out.printf("===Boarding Pass===\nSeatNO\t\tClass\n%d\t\tFirstClass",seatNo);
-
+							for(int a=5;a<=10;a++)
+							{
+								if(seatsStatus[a-1]==false){
+									seatNo=a;
+									seatsStatus[a-1]=true;
+									System.out.printf("===Boarding Pass===\nSeatNO\t\tClass\n%d\t\tEconomy%n",seatNo);
+									break;
+								}
+								else{
+									System.out.println("All economy Seats has been Taken");
+								}
+								
+								
+							}
 						}
 						else
 						{
-							System.out.println("All seats taken");
+							System.out.println("Next Flight leaves in 3 Hours");
 						}
 						
 					}
+					
+				}
+			if(num<4){
+				num++;
+			}
+				
+				
+					
+			}
+			else
+			{
+				for(int j=5;j<=10;j++)
+				{
+					if(seatsStatus[economyControl]==false)
+					{
+						seatNo=economyControl+1;
+						seatsStatus[economyControl]=true;
+						System.out.printf("===Boarding Pass===\nSeatNO\t\tClass\n%d\t\tEconomy%n",seatNo);
+						break;
+					}
 					else
 					{
-						System.out.print("Next flight leaves in 3 hours");
+						System.out.println("Economy full(would you like to move to FirstClass(Y/N): ");
+						String response3=scan.nextLine();
+						if(response3.equalsIgnoreCase("y"))
+						{
+						
+							for(int h=1;h<=5;h++)
+							{
+								if(seatsStatus[h-1]==false)
+								{
+									seatNo=h;
+									seatsStatus[h-1]=true;
+									num=1;
+									System.out.printf("===Boarding Pass===\nSeatNO\t\tClass\n%d\t\tFirst%n",seatNo);
+									break;
+
+								}
+								else
+								{
+									System.out.println("All firstclass seats taken");
+								}
+							}
+						}
+						else
+						{
+							System.out.println("Next flight leaves in 3 hours");
+						}
+					
 					}
+					break;
+				
 				}
+				if(economyControl<9)
+					economyControl++;
 
 			}
 			
